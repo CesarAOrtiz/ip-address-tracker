@@ -3,26 +3,19 @@ import Head from "next/head";
 import dynamic from "next/dynamic";
 import Form from "../components/Form";
 import Info from "../components/Info";
-import { IpInfoState } from "../interfaces/IpInfoState";
+import { useIpInfo } from "../contexts/IpInfoContext";
 
 const MapWithNoSSR = dynamic(() => import("../components/Map"), {
     ssr: false,
 });
 
 interface Props {
-    state: IpInfoState;
-    handleSubmit: (e: React.FormEvent<HTMLFormElement>) => Promise<void>;
-    handleChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
     mapboxTilelayerUrl: string;
     pageProps: any;
 }
 
-const Home: NextPage<Props> = ({
-    state,
-    handleSubmit,
-    handleChange,
-    mapboxTilelayerUrl,
-}) => {
+const Home: NextPage<Props> = ({ mapboxTilelayerUrl }) => {
+    const { state, handleSubmit, handleChange } = useIpInfo();
     return (
         <>
             <Head>
