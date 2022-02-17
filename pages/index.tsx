@@ -20,6 +20,7 @@ const Home: NextPage<Props> = ({ mapboxTilelayerUrl }) => {
         <>
             <Head>
                 <title>IP Adress Tracker</title>
+                <meta name="author" content="César Ortiz" />
                 <meta property="og:site_name" content="IP Adress Tracker" />
                 <meta
                     property="og:description"
